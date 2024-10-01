@@ -1,20 +1,21 @@
-<!doctype html>
-<html lang="en">
-  <head><meta charset="utf-8"/>
-    <link rel="icon" to="/favicon.ico"/>
-    <meta name="viewport" content="width=device-width,initial-scale=1"/>
-    <meta name="theme-color" content="#000000"/>
-    <meta name="description" content="Web site created using create-react-app"/>
-    <link rel="apple-touch-icon" to="/logo192.png"/><link rel="manifest" to="/manifest.json"/>
-    <title>React App</title><script defer="defer" src="/static/js/main.8683678e.js">
-      
-    </script><link href="/static/css/main.d15b4b6a.css" rel="stylesheet">
-  </head>
-  <body>
-    <noscript>
-    You need to enable JavaScript to run this app.
-  </noscript>
-    <div id="root">
-  </div>
-  </body>
-</html>
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Catalog from './components/Catalog';
+import ProductDetail from './components/ProductDetail';
+
+function App() {
+  return (
+    <Router>
+      <div>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Catalog />} />
+          <Route path="/product/:id" element={<ProductDetail />} />
+        </Routes>
+      </div>
+    </Router>
+  );
+}
+
+export default App;
